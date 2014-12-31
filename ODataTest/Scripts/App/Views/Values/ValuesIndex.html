@@ -1,69 +1,85 @@
 ﻿<!--table.table.table-hover.table-bordered.table-responsive.table-highlightHeader[data-ng-disabled="loadingProducts"]>tr>th*5+tr*1-->
-<style>
-	.k-label
-	{
-		display: none;
-		visibility: hidden;
-	}
-</style>
 <div>
-	<div class="col-md-12 col-xs-12">
-		
-			<button type="button" class="btn btn-primary" data-ng-click="getProducts()">Get Data</button>
-			<button class="btn btn-danger" data-ng-click="clearProducts()">Reset</button>
-		
-			<h2 style="text-align:center;">Pg # {{pageIndex}}</h2>
-		</div>
-	</div>
+    <style>
+        .k-label {
+            display: none;
+            visibility: hidden;
+        }
+    </style>
 
-	<table class="table table-hover table-bordered table-responsive table-highlightHeader" data-ng-disabled="loadingProducts">
-		<thead>
-			<tr>
-				<th data-ng-click="filterRecords = !filterRecords">ID
-					<button class="btn btn-sm glyphicon_hover pull-right" data-ng-click="toggleFilterVisibility()" data-ng-class="{'btn-primary': showFilterRow, 'btn-warning' : strict}" title="Blue - strict search is off | Orange - strict search is on"><span class="glyphicon glyphicon-filter pull-right"></span></button>
-				</th>
-				<th>Name</th>
-				<th>Unit Price</th>
-				<th>Inventory</th>
-				<th>Asset Value (Custom Currency)</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr data-ng-show="filterRecords">
-				<td></td>
-				<td>
-					<input type="text" /></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr data-ng-show="loadingProducts">
-				<td colspan="5" style="text-align: center;">
-					<div class="glyphicon glyphicon-refresh" aria-hidden="true"> Working</div>
-				</td>
-			</tr>
-			<tr data-ng-show="(northwindProcuts.length==0) && loadingProducts == false">
-				<td colspan="5" style="text-align: center;">
-					<label>Nothing to show here, try clicking on "Rest" & then "Get Data" button</label>
-				</td>
-			</tr>
-			<tr data-ng-hide="loadingProducts" data-ng-repeat="p in northwindProcuts">
-				<td>{{p.ProductID}}</td>
-				<td>{{p.ProductName}}</td>
-				<td>{{p.UnitPrice | currency}}</td>
-				<td>{{p.UnitsInStock}}</td>
-				<td>{{(p.UnitPrice * p.UnitsInStock) | currency: "β " : 10 }}</td>
-			</tr>
-		</tbody>
-	</table>
-	<ul class="pager">
-		<li class="previous"><a href="" class="btn" data-ng-show="northwindProcuts.length > 0" data-ng-click="prevPage()"><span aria-hidden="true">&larr;</span> Prev</a></li>
-		<li>
-			<div class="col-md-10">
-				<label>Page Size: </label>
-				<div data-kendo-slider="" data-k-min="0" data-k-max="20" data-k-small-step="5" data-k-ng-model="pageSize"></div>
-			</div>
-		</li>
-		<li class="next"><a class="btn" data-ng-show="northwindProcuts.length > 0" data-ng-click="nextPage()">Next <span aria-hidden="true">&rarr;</span></a></li>
-	</ul>
+    <div class="col-md-12 col-xs-12">
+        <h3 class="row">
+            <p class="text-center">
+                <label class="label label-success">
+                    Pure HTML5 AngularJS 
+                    <abbr title="Single Page Application - an application that is architectured to run seemlessly without your browser having to refresh the whole webpage" class="initialism">SPA</abbr>
+                    with Bootstrap, built  from scratch in < 15 minutes.
+                </label>
+            </p>
+        </h3>
+    </div>
+    <ul class="pager">
+        <li class="previous">
+            <button class="pull-left btn btn-warning" data-ng-show="northwindProcuts.length > 0" data-ng-click="prevPage()"><span aria-hidden="true">&larr;</span> Prev</button></li>
+        <li>
+            <div class="col-md-11">
+                <label>Page Size: </label>
+                <div data-kendo-slider="" data-k-min="0" data-k-max="20" data-k-small-step="5" data-k-ng-model="pageSize"></div>
+            </div>
+        </li>
+        <li class="next">
+            <button class="pull-right btn btn-warning" data-ng-show="northwindProcuts.length > 0" data-ng-click="nextPage()">Next <span aria-hidden="true">&rarr;</span></button></li>
+    </ul>
+
+    <div>
+        <div class="col-md-12 col-xs-12">
+
+            <button type="button" class="btn btn-primary" data-ng-click="getProducts()">Get Data</button>
+            <button class="btn btn-danger" data-ng-click="clearProducts()">Reset</button>
+
+            <h2 style="text-align: center;">Pg # {{pageIndex}}</h2>
+        </div>
+    </div>
+
+    <table class="table table-hover table-bordered table-responsive table-highlightHeader" data-ng-disabled="loadingProducts">
+        <thead>
+            <tr>
+                <th>
+                    <a href="" data-ng-click="sort('ProductID');">ID</a>
+                    <button class="btn btn-sm glyphicon_hover pull-right" data-ng-click="toggleFilterVisibility()" data-ng-class="{'btn-primary': showFilterRow, 'btn-warning' : strict}" title="Blue - strict search is off | Orange - strict search is on"><span class="glyphicon glyphicon-filter pull-right"></span></button>
+                </th>
+                <th><a href="" data-ng-click="sort('ProductName');">Name</a></th>
+                <th><a href="" data-ng-click="sort('UnitPrice');">Unit Price</a></th>
+                <th><a href="" data-ng-click="sort('UnitsInStock');">Inventory</a></th>
+                <th>Asset Value (Custom Currency)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-ng-show="filterRecords">
+                <td></td>
+                <td>
+                    <input type="text" data-ng-model="search.ProductName" /></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr data-ng-show="loadingProducts">
+                <td colspan="5" style="text-align: center;">
+                    <div class="glyphicon glyphicon-refresh" aria-hidden="true">&nbsp;Working</div>
+                </td>
+            </tr>
+            <tr data-ng-show="(northwindProcuts.length==0) && loadingProducts == false">
+                <td colspan="5" style="text-align: center;">
+                    <label>Nothing to show here, try clicking on "Rest" & then "Get Data" button</label>
+                </td>
+            </tr>
+            <tr data-ng-hide="loadingProducts" data-ng-repeat="p in northwindProcuts  | filter:search:strict | orderBy:predicate:reverse">
+                <td>{{p.ProductID}}</td>
+                <td>{{p.ProductName}}</td>
+                <td>{{p.UnitPrice | currency}}</td>
+                <td>{{p.UnitsInStock}}</td>
+                <td>{{(p.UnitPrice * p.UnitsInStock) | currency: "β " : 10 }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

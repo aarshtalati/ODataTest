@@ -1,84 +1,79 @@
 ﻿<!DOCTYPE html>
 <html data-ng-app="app">
 <head>
-	<base href="/#/base" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/#/base" />
 
-	<script src="Scripts/jquery-1.9.1.min.js"></script>
-	<!--<script src="Scripts/bootstrap.min.js"></script>-->
-	<script src="Scripts/angular.min.js"></script>
-	<script src="Scripts/angular-route.min.js"></script>
-	<script src="Scripts/angular-sanitize.min.js"></script>
-	<script src="Scripts/kendo/2014.2.716/kendo.core.min.js"></script>
-	<script src="Scripts/kendo/2014.2.716/kendo.ui.core.min.js"></script>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/angular-sanitize.min.js"></script>
+    <script src="Scripts/kendo/2014.2.716/kendo.core.min.js"></script>
+    <script src="Scripts/kendo/2014.2.716/kendo.ui.core.min.js"></script>
 
-	<link href="Content/bootstrap.min.css" rel="stylesheet" />
-	<!--<link href="Content/bootstrap/bootstrap-flat.min.css" rel="stylesheet" />-->
-	<link href="Content/kendo/2014.2.716/kendo.common.min.css" rel="stylesheet" />
-	<link href="Content/kendo/2014.2.716/kendo.default.min.css" rel="stylesheet" />
-	<link href="Content/angular-ui.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <!--<link href="Content/bootstrap/bootstrap-flat.min.css" rel="stylesheet" />-->
+    <link href="Content/kendo/2014.2.716/kendo.common.min.css" rel="stylesheet" />
+    <link href="Content/kendo/2014.2.716/kendo.default.min.css" rel="stylesheet" />
+    <link href="Content/angular-ui.min.css" rel="stylesheet" />
 
-	<style>
-		.table-highlightHeader tr th
-		{
-			background-color: #EDEDED;
-		}
+    <style>
+        .table-highlightHeader tr th {
+            background-color: #EDEDED;
+        }
 
-		.table-reduceBodyRowHeight tbody tr
-		{
-			line-height: 100%;
-			max-height: 25px !important;
-			height: 25px;
-			vertical-align: middle;
-		}
+        .table-reduceBodyRowHeight tbody tr {
+            line-height: 100%;
+            max-height: 25px !important;
+            height: 25px;
+            vertical-align: middle;
+        }
 
-		.glyphicon :hover,
-		.glyphicon_hover:hover
-		{
-			/*background-color: #145998 ;*/
-			background-color: #2A6496;
-			color: #fff;
-		}
-	</style>
+        .glyphicon :hover,
+        .glyphicon_hover:hover {
+            /*background-color: #145998 ;*/
+            background-color: #2A6496;
+            color: #fff;
+        }
+    </style>
 
 
-	<!--All my AngularJS code-->
-	<script src="Scripts/App/app.js"></script>
+    <!--All my AngularJS code-->
+    <script src="Scripts/App/app.js"></script>
 
-	<title></title>
+    <title></title>
 </head>
 <body>
-	
-	<div class="navbar navbar-inverse" style="margin-bottom: 0px;">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-			</div>
-			<div class="navbar-collapse collapse navbar-inverse-collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="/">Products</a></li>
-					<li><a href="#/Customers">Customers</a></li>
-					<li><a href="#/Orders">Orders</a></li>
-					<li><h3><div class="label label-success">AngularJS SPA 0% .NET, built  from scratch < 10 minutes.</div></h3></li>
-				</ul>
-			</div>
-	</div>
 
-	<!--Let's bootstrap AngularJS-->
-	<div>
-		
-		<!--AngularJS SPA Container-->
-		<div id="ngViewContainer">
-			<div data-ng-controller="spaController" data-ng-init="welcome='AngualrJS 1.2.25 runs in IE 8 ... if you\'ve to.'">
-				<!--<div>{{welcome}}</div> <br />
-				<input type="text" class="form-control" data-ng-model="welcome" />-->
-				<div ng-view="">
-					<h3>Please wait AngualrJS is loading view markup ... if you're still reading this, check browser console !</h3>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="navbar navbar-inverse" style="margin-bottom: 0px;">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse navbar-inverse-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Products</a></li>
+                <li><a href="#/Customers">Customers</a></li>
+                <li><a href="#/Orders">Orders</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!--Let's bootstrap AngularJS-->
+    <div>
+
+        <!--AngularJS SPA Container-->
+        <div id="ngViewContainer">
+            <div data-ng-controller="spaController">
+                <div data-ng-view="">
+                    <h3>Please wait AngualrJS is loading view markup ... if you're still reading this, check browser console !</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
