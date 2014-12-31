@@ -25,8 +25,8 @@ app.controller('spaController', ['$scope', '$location', function spaController($
     $scope.title = 'spaController';
 }]);
 
-app.controller('ValuesController', ['$scope', 'ValuesService', function ValuesController($scope, service) {
-    $scope.title = 'ValuesController';
+app.controller('ProductsController', ['$scope', 'ValuesService', function ProductsController($scope, service) {
+    $scope.title = 'ProductsController';
     $scope.northwindProcuts = [];
     $scope.pageSize = 10;
     $scope.pageIndex = 0;
@@ -104,8 +104,8 @@ app.config(['$routeProvider', '$locationProvider',
 	    // default
 	    $routeProvider
 			.when('/', {
-			    templateUrl: '/Scripts/App/Views/Values/ValuesIndex.html',
-			    controller: 'ValuesController'
+			    templateUrl: '/Scripts/App/Views/Products/ProductsIndex.html',
+			    controller: 'ProductsController'
 			})
 
 			.when('/Customers', {
