@@ -10,7 +10,7 @@ var app = angular.module('app', [
 	, 'kendo.directives'
 ]);
 
-app.service('ValuesService', ['$http', function ($http) {
+app.service('ProductsService', ['$http', function ($http) {
     this.getNorthwindProducts = function (skip, top) {
         var _url = 'http://services.odata.org/northwind/northwind.svc/Products?$skip=' + skip + '&$top=' + top //+ '&$orderby=UnitPrice';
         console.log(_url);
@@ -21,14 +21,14 @@ app.service('ValuesService', ['$http', function ($http) {
     };
 }]);
 
-app.controller('spaController', ['$scope', '$location', function spaController($scope, $location) {
+app.controller('spaController', ['$scope', '$location', function ($scope, $location) {
     $scope.title = 'spaController';
 }]);
 
-app.controller('ProductsController', ['$scope', 'ValuesService', function ProductsController($scope, service) {
+app.controller('ProductsController', ['$scope', 'ProductsService', function ProductsController($scope, service) {
     $scope.title = 'ProductsController';
     $scope.northwindProcuts = [];
-    $scope.pageSize = 10;
+    $scope.pageSize = 5;
     $scope.pageIndex = 0;
     $scope.reverse = undefined;
     $scope.loadingProducts = false;
@@ -91,7 +91,7 @@ app.controller('ProductsController', ['$scope', 'ValuesService', function Produc
     }
 }]);
 
-app.controller('CustomersController', ['$scope', '$location', function spaController($scope, $location) {
+app.controller('CustomersController', ['$scope', '$location', function ($scope, $location) {
     $scope.title = 'CustomersController';
 }]);
 

@@ -1,5 +1,5 @@
 ﻿<!--table.table.table-hover.table-bordered.table-responsive.table-highlightHeader[data-ng-disabled="loadingProducts"]>tr>th*5+tr*1-->
-<div>
+<div data-ng-init="getProducts()">
     <style>
         .k-label {
             display: none;
@@ -48,7 +48,7 @@
         </tr>
         <tr data-ng-show="loadingProducts">
             <td colspan="4" style="text-align: center;">
-                <div class="glyphicon glyphicon-refresh" aria-hidden="true">&nbsp;Working</div>
+                <div class="glyphicon glyphicon-refresh" data-aria-hidden="true">&nbsp;Working</div>
             </td>
         </tr>
         <tr data-ng-show="(northwindProcuts.length==0) && loadingProducts == false">
@@ -60,7 +60,7 @@
             <td>{{p.ProductName}}</td>
             <td>{{p.UnitPrice | currency}}</td>
             <td>{{p.UnitsInStock}}</td>
-            <td>{{(p.UnitPrice * p.UnitsInStock) | currency: "β " : 10 }}</td>
+            <td>{{(p.UnitPrice * p.UnitsInStock) | currency }}</td>
         </tr>
         </tbody>
     </table>
