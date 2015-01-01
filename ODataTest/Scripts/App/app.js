@@ -88,7 +88,7 @@ app.controller('ProductsController', ['$scope', 'ProductsService', function ($sc
 		else
 			$scope.reverse = order;
 		console.log('Sorting by : ', fieldName, ' order : ', $scope.reverse);
-	}
+	};
 }]);
 
 app.controller('CustomersController', ['$scope', '$location', function ($scope, $location) {
