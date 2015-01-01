@@ -113,6 +113,10 @@ app.config(['$routeProvider', '$locationProvider',
 			    controller: 'CustomersController'
 			})
 
+        .when('/About', {
+            templateUrl: '/Scripts/App/Views/About/AboutIndex.html'
+        })
+
 	    //.when(spaBaseUrl + 'ConnectionMethod/AddTo/:consumerTypeId/:consumerId', {
 	    //	templateUrl: '/Scripts/App/Views/ConnectionMethod/Create.html',
 	    //	controller: 'connectionMethodController'

@@ -6,7 +6,6 @@
             visibility: hidden;
         }
     </style>
-    
     <button type="button" class="btn btn-primary" data-ng-click="getProducts()">Get Data</button>
     <button class="btn btn-danger" data-ng-click="clearProducts()">Reset</button>
 
@@ -30,43 +29,40 @@
 
     <table class="table table-hover table-bordered table-responsive table-highlightHeader" data-ng-disabled="loadingProducts">
         <thead>
-        <tr>
-            <th><a href="" data-ng-click="sort('ProductName');">Name</a><button class="btn btn-sm glyphicon_hover pull-right" data-ng-click="toggleFilterVisibility()" data-ng-class="{'btn-primary': showFilterRow, 'btn-warning' : strict}" title="Blue - strict search is off | Orange - strict search is on"><span class="glyphicon glyphicon-filter pull-right"></span></button></th>
-            <th><a href="" data-ng-click="sort('UnitPrice');">Unit Price</a></th>
-            <th><a href="" data-ng-click="sort('UnitsInStock');">Inventory</a></th>
-            <th>Total</th>
-        </tr>
+            <tr>
+                <th><a href="" data-ng-click="sort('ProductName');">Name</a>
+                    <button class="btn btn-sm glyphicon_hover pull-right" data-ng-click="toggleFilterVisibility()" data-ng-class="{'btn-primary': showFilterRow, 'btn-warning' : strict}" title="Blue - strict search is off | Orange - strict search is on"><span class="glyphicon glyphicon-filter pull-right"></span></button>
+                </th>
+                <th><a href="" data-ng-click="sort('UnitPrice');">Unit Price</a></th>
+                <th><a href="" data-ng-click="sort('UnitsInStock');">Inventory</a></th>
+                <th>Total</th>
+            </tr>
         </thead>
         <tbody>
-        <tr data-ng-show="filterRecords">
-            <td>
-                <input type="text" data-ng-model="search.ProductName" />
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr data-ng-show="loadingProducts">
-            <td colspan="4" style="text-align: center;">
-                <div class="glyphicon glyphicon-refresh" data-aria-hidden="true">&nbsp;Working</div>
-            </td>
-        </tr>
-        <tr data-ng-show="(northwindProcuts.length==0) && loadingProducts == false">
-            <td colspan="4" style="text-align: center;">
-                <label>Nothing to show here, try clicking on "Rest" & then "Get Data" button</label>
-            </td>
-        </tr>
-        <tr data-ng-hide="loadingProducts" data-ng-repeat="p in northwindProcuts  | filter:search:strict | orderBy:predicate:reverse">
-            <td>{{p.ProductName}}</td>
-            <td>{{p.UnitPrice | currency}}</td>
-            <td>{{p.UnitsInStock}}</td>
-            <td>{{(p.UnitPrice * p.UnitsInStock) | currency }}</td>
-        </tr>
+            <tr data-ng-show="filterRecords">
+                <td>
+                    <input type="text" data-ng-model="search.ProductName" />
+                </td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr data-ng-show="loadingProducts">
+                <td colspan="4" style="text-align: center;">
+                    <div class="glyphicon glyphicon-refresh" data-aria-hidden="true">&nbsp;Working</div>
+                </td>
+            </tr>
+            <tr data-ng-show="(northwindProcuts.length==0) && loadingProducts == false">
+                <td colspan="4" style="text-align: center;">
+                    <label>Nothing to show here, try clicking on "Rest" & then "Get Data" button</label>
+                </td>
+            </tr>
+            <tr data-ng-hide="loadingProducts" data-ng-repeat="p in northwindProcuts  | filter:search:strict | orderBy:predicate:reverse">
+                <td>{{p.ProductName}}</td>
+                <td>{{p.UnitPrice | currency}}</td>
+                <td>{{p.UnitsInStock}}</td>
+                <td>{{(p.UnitPrice * p.UnitsInStock) | currency }}</td>
+            </tr>
         </tbody>
     </table>
-    <div class="col-md-12">
-        Pure HTML5 AngularJS
-        <abbr title="Single Page Application - an application that is architectured to run seemlessly without your browser having to refresh the whole webpage" class="initialism">SPA</abbr>
-        with Bootstrap, built  from scratch in < 15 minutes.
-    </div>
 </div>
