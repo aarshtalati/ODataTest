@@ -10,6 +10,7 @@
 
 - The application intentinoally does not refresh the data, click "Get Data", to update the results. ( `Blue Button` )
 - To reset the view, click "Reset". ( `Red Button` )
+- To filter the records, click the "funnel" icon and a text box should appear to enter your filter criteria
 
 
 
