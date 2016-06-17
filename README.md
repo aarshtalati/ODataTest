@@ -8,6 +8,10 @@
 
 [http://spaodata.apphb.com/](http://spaodata.apphb.com/ "AppHarbor hosted app")
 
+- The application intentinoally does not refresh the data, click "Get Data", to update the results. ( `Blue Button` )
+- To reset the view, click "Reset". ( `Red Button` )
+
+
 
 ## Screen shots:
 
